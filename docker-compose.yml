@@ -1,0 +1,36 @@
+version: "2"
+
+services:
+
+  client:
+
+    build: 
+      context: ./yeelight-controller-client/
+      # dockerfile: Dockerfile
+      dockerfile: Dockerfile.raspberry-pi
+
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+
+    networks:
+      - app-network
+    
+  api:
+
+    build: 
+      context: ./yeelight-controller-api/
+      # dockerfile: Dockerfile
+      dockerfile: Dockerfile.raspberry-pi
+
+    restart: unless-stopped
+
+    ports:
+      - "5000:5000"
+
+    networks:
+      - app-network
+
+networks:
+  app-network:
