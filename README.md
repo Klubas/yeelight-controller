@@ -1,5 +1,7 @@
 # YeelightHub
 
+Wrapper so you can run the yeelight-controller api and client inside docker containers
+
 ## clone api and client
     
     # todo: use git submodules
