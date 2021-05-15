@@ -8,9 +8,6 @@ services:
       dockerfile: Dockerfile.raspberry-pi
     restart: unless-stopped
     network_mode: "host"
-
-    depends_on:
-      - api
     
   api:
     build: 
@@ -19,3 +16,32 @@ services:
       dockerfile: Dockerfile.raspberry-pi
     restart: unless-stopped
     network_mode: "host"
+  
+  fbcp:
+    image: balenablocks/fbcp
+    privileged: true
+
+  browser:
+    restart: unless-stopped
+    build:
+     context: ./browser/
+     dockerfile: Dockerfile 
+    privileged: true # required for UDEV to find plugged in peripherals such as a USB mouse
+    network_mode: "host"
+    environment:
+      KIOSK: 1
+      WINDOW_SIZE: 480,320
+      LOCAL_HTTP_DELAY: 120
+      ENABLE_GPU: 1
+    ports:
+        - '5011' # management API (optional)
+        - '35173' # Chromium debugging port (optional)
+  
+  # electron:
+  #   restart: unless-stopped
+  #   network_mode: "host"
+  #   build:
+  #     context: ./electron/
+  #     dockerfile: Dockerfile
+
+  
