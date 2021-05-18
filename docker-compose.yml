@@ -36,12 +36,3 @@ services:
     ports:
         - '5011' # management API (optional)
         - '35173' # Chromium debugging port (optional)
-  
-  # electron:
-  #   restart: unless-stopped
-  #   network_mode: "host"
-  #   build:
-  #     context: ./electron/
-  #     dockerfile: Dockerfile
-
-  
