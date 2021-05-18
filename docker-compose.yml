@@ -4,18 +4,33 @@ services:
   client:
     build: 
       context: ./yeelight-controller-client/
-      #dockerfile: Dockerfile
-      dockerfile: Dockerfile.raspberry-pi
+      dockerfile: Dockerfile.template
     restart: unless-stopped
     network_mode: "host"
-
-    depends_on:
-      - api
     
   api:
     build: 
       context: ./yeelight-controller-api/
-      #dockerfile: Dockerfile
-      dockerfile: Dockerfile.raspberry-pi
+      dockerfile: Dockerfile.template
     restart: unless-stopped
     network_mode: "host"
+  
+  fbcp:
+    image: balenablocks/fbcp
+    privileged: true
+
+  browser:
+    restart: unless-stopped
+    build:
+     context: ./browser/
+     dockerfile: Dockerfile 
+    privileged: true
+    network_mode: "host"
+    environment:
+      KIOSK: 1
+      WINDOW_SIZE: 480,320
+      LOCAL_HTTP_DELAY: 120
+      ENABLE_GPU: 1
+    ports:
+        - '5011' # management API
+        - '35173' # Chromium debugging port
