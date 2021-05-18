@@ -1,6 +1,6 @@
 ./yeelight-controller-api
 ./yeelight-controller-client
 .vscode/
-.ideia/
+.idea/
 venv/
 ./electron
