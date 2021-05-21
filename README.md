@@ -17,9 +17,9 @@ docker-compose.yml default Dockerfile is Dockerfile.template and it will only wo
 
 ## build with balena 
 
-    balena build --deviceType <qemux86-64> --arch <amd64>
+    balena build --deviceType <qemux86-64> --arch <amd64> --multi-dockerignore
 
 ## build and run in balena application
 
-    balena push <application-name>
+    balena push <application-name> --multi-dockerignore
     
