@@ -2,11 +2,9 @@
 
 Wrapper so you can run the yeelight-controller api and client with a docker-compose file
 
-Api and client repos:
-
-https://github.com/Klubas/yeelight-controller-api
-
-https://github.com/Klubas/yeelight-controller-client 
+API and client repos:
+* https://github.com/Klubas/yeelight-controller-api
+* https://github.com/Klubas/yeelight-controller-client 
 
 ## clone api and client
     
