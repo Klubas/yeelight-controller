@@ -1,6 +1,6 @@
 # YeelightHub
 
-Wrapper so you can run the yeelight-controller api and client with a docker-compose file
+Wrapper for yeelight-controller api and client with a docker-compose file
 
 API and client repos:
 * https://github.com/Klubas/yeelight-controller-api
