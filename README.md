@@ -19,7 +19,19 @@ docker-compose.yml default Dockerfile is Dockerfile.template and it will only wo
 
     balena build --deviceType <qemux86-64> --arch <amd64> --multi-dockerignore
 
-## build and run in balena application
+## build and run in balena fleet
 
-    balena push <application-name> --multi-dockerignore
+    balena push <fleet-name> --multi-dockerignore
+
+## Device Configuration
+    # The following fleet/device configuration is required
+    dtparam=spi=on
+    dtparam=i2c=on
     
+## Device Variables
+    # Setting the following fleet/device configuration may be required for proper scaling of the TFT Display 
+    BALENA_HOST_CONFIG_hdmi_cvt                 480 320 60 1 0 0 0      //<width> <height> <framerate> <aspect> <margins> <interlace> <rb>
+    BALENA_HOST_CONFIG_hdmi_force_hotplug 	    1
+    BALENA_HOST_CONFIG_hdmi_group 	            2
+    BALENA_HOST_CONFIG_hdmi_mode 	            87
+

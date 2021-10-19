@@ -5,32 +5,36 @@ services:
     build: 
       context: ./yeelight-controller-client/
       dockerfile: Dockerfile.template
-    restart: unless-stopped
+    restart: always
     network_mode: "host"
     
   api:
     build: 
       context: ./yeelight-controller-api/
       dockerfile: Dockerfile.template
-    restart: unless-stopped
+    restart: always
     network_mode: "host"
   
   fbcp:
     image: balenablocks/fbcp
     privileged: true
+    restart: unless-stopped
 
   browser:
-    restart: unless-stopped
     build:
      context: ./browser/
      dockerfile: Dockerfile 
     privileged: true
     network_mode: "host"
+    restart: unless-stopped
     environment:
       KIOSK: 1
       WINDOW_SIZE: 480,320
       LOCAL_HTTP_DELAY: 120
       ENABLE_GPU: 1
-    ports:
-        - '5011' # management API
-        - '35173' # Chromium debugging port
+    volumes:
+      - 'settings:/data'
+
+volumes:
+  settings:
+    
