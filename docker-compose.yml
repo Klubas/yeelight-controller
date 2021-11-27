@@ -4,7 +4,8 @@ services:
   client:
     build: 
       context: ./yeelight-controller-client/
-      dockerfile: Dockerfile.template
+      # dockerfile: Dockerfile.template
+      dockerfile: Dockerfile.raspberry-pi
     restart: always
     network_mode: "host"
     
