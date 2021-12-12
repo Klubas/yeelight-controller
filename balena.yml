@@ -13,5 +13,5 @@ data:
   supportedDeviceTypes:
     - raspberrypi3
   applicationConfigVariables:
-    - RESIN_HOST_CONFIG_dtparam: "i2c_arm=off","spi=off","audio=off"
+    - RESIN_HOST_CONFIG_dtparam: "i2c_arm=off,spi=off,audio=off"
 version: 0.0.1
