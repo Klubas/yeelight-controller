@@ -9,7 +9,7 @@ assets:
     data:
       url: 'https://github.com/klubas/yeelight-controller'
 data:
-  defaultDeviceType: raspraspberrypi3
+  defaultDeviceType: raspberrypi3
   supportedDeviceTypes:
     - raspberrypi3
   applicationConfigVariables:
